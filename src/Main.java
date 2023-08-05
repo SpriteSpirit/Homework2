@@ -87,12 +87,12 @@ public class Main {
     }
     public static void task6() {
         System.out.println("Задание 6");
-        int bananas = 5*80;
-        int milk = 2*105;
-        int iceCream = 2*100;
-        int eggs = 4*70;
+        int bananasGram = 80;
+        int milkGram = 105;
+        int iceCreamGram = 100;
+        int eggsGram = 70;
 
-        int totalWeightG = (bananas + milk + iceCream + eggs);
+        int totalWeightG = (5*bananasGram + 2*milkGram + 2*iceCreamGram + 4*eggsGram);
         float totalWeightKg = (float) totalWeightG/1000;
 
         System.out.printf("Athlete's breakfast is %d grams or %.2f kilograms.%n%n", totalWeightG, totalWeightKg);
@@ -113,21 +113,15 @@ public class Main {
         System.out.println("Задание 8");
         int mashaSalary = 67_760;
         int denisSalary = 83_690;
-        int christineSalary = 76_230;
-        int annualIncreaseInPercent = 10;
-        int year = 12;
+        int christinaSalary = 76_230;
+        float annualIncreaseInPercent = 1.1f;
 
-        int mashaSalaryAfterIncrease = (mashaSalary*annualIncreaseInPercent/100) + mashaSalary;
-        int denisSalaryAfterIncrease = (denisSalary*annualIncreaseInPercent/100) + denisSalary;
-        int christineSalaryAfterIncrease = (christineSalary*annualIncreaseInPercent/100) + christineSalary;
-
-        int mashaSalaryDifference = (mashaSalaryAfterIncrease*year) - (mashaSalary*year);
-        int denisSalaryDifference = (denisSalaryAfterIncrease*year) - (denisSalary*year);
-        int christineSalaryDifference = (christineSalaryAfterIncrease*year) - (christineSalary*year);
-
-
-        System.out.printf("Masha now gets %d rubles'. Annual revenue increased by %d rubles.%n", mashaSalaryAfterIncrease, mashaSalaryDifference);
-        System.out.printf("Denis now gets %d rubles'. Annual revenue increased by %d rubles.%n", denisSalaryAfterIncrease, denisSalaryDifference);
-        System.out.printf("Christine now gets %d rubles'. Annual revenue increased by %d rubles.%n%n", christineSalaryAfterIncrease, christineSalaryDifference);
+        printNewSalary("Masha", mashaSalary, annualIncreaseInPercent);
+        printNewSalary("Denis", denisSalary, annualIncreaseInPercent);
+        printNewSalary("Christina", christinaSalary, annualIncreaseInPercent);
+    }
+    private static void printNewSalary(String name, int oldSalary, double percent){
+        float yearDifference = (float) (((oldSalary*percent)-oldSalary) * 12);
+        System.out.printf("%s now gets %.2f rubles. Annual revenue increased by %.2f rubles.%n", name, oldSalary*percent, yearDifference);
     }
 }
